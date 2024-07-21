@@ -1,0 +1,111 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+
+ class VentanaDeJuego {
+        - JPanelSokoban: JPanel
+        - reiniciarNivelButton: JButton
+        - nivelesButton: JButton
+        - juego: JPanel
+        - niveles: Nivel[]
+        - númeroDeNivelDeJuego: int
+        - panelDeGraficos: RecursosGraficos
+        + crearListaDeNiveles()
+        + crearVentana()
+        + crearRecursoGráficoDeNivel()
+    }
+
+ class Escenario {
+        - matrizModeloDeEscenario: int[][]
+        - matrizDeObjetos: Bloque[][]
+        - archivoDeNivel: String
+        + transformarArchivoMapaAMatriz()
+        + crearMatrizDeBloques()
+        + totalPuntoDeLlegada()
+    }
+
+ abstract class Bloque{
+        # direcciónEnArchivo: URL
+        # esTangible: boolean
+        # escenario: Escenario
+        {abstract} llegaAlPuntoDeLlegada()
+    }
+
+class Nivel {
+    - personaje: Personaje
+    - numeracionDelNivel : int
+    - escenario: Escenario
+    - direcciónDeNivel: String
+    - completoElNivel: boolean
+    + estáCompletoElNivel()
+    + buscarArchivoDeNivel(numeroDeNivel: int)
+}
+
+class RecursosGraficos{
+    - imagenDeFondo: URL
+    - nivel: Nivel
+    + paint(Graphics g)
+    + pintarFondo(Graphics2D g2)
+    + pintarPersonaje(Graphics2D g2)
+    + pintarBloqueIndividual(Graphics2D g2)
+    + pintarElEscenario((Graphics2D g2)
+}
+
+class Personaje {
+    - posicionPersonajeEnX: int
+    - posicionPersonajeEnY: int
+    - direcciónEnArchivo: URL
+    - movimiento: int
+    + podreMoverBloque(evento: KeyEvent, escenario: Escenario)
+    + moverPersonaje(evento: KeyEvent)
+    + moverBloque(evento: KeyEvent), escenario: Escenario)
+    + puedeAvanzar(evento: KeyEvent), escenario: Escenario)
+    + interaccion(evento: KeyEvent), escenario: Escenario, nivel: Nivel)
+}
+
+
+
+class Caja {
+    + llegaAlPuntoDeLlegada(b: boolean)
+}
+
+class MenuPrincipal{
+    - jugarButton: JButton
+    - creditosButton: JButton
+    - salirButton: JButton
+    - panelPrincipal: JPanel
+}
+
+class JFrameNiveles {
+    - ventanaDeSokoban: VentanaDeJuego
+    - nivel1Button: JButton
+    - nivel2Button: JButton
+    - nivel3Button: JButton
+    - JPanelNiveles: JPanel
+    - regresarButton: JButton
+}
+
+package "Interfaces"  #f7dc6f {
+        MenuPrincipal --> JFrameNiveles
+        JFrameNiveles --> VentanaDeJuego
+}
+
+package "com.company"  #aed6f1 {
+        VentanaDeJuego -> RecursosGraficos
+        VentanaDeJuego -> Nivel
+
+        Nivel -> Personaje
+        Nivel -> Escenario
+
+        Personaje ..> Nivel
+        Personaje ..> Escenario
+        Escenario --> Bloque
+
+        Caja <|-up- Bloque
+        Pared <|-up- Bloque
+        Suelo <|-up- Bloque
+        PuntoDeLlegada <|-up- Bloque
+}
+
+@enduml

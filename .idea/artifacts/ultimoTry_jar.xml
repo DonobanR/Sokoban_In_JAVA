@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ultimoTry:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ultimoTry_jar</output-path>
+    <root id="archive" name="ultimoTry.jar">
+      <element id="module-output" name="ultimoTry" />
+    </root>
+  </artifact>
+</component>
