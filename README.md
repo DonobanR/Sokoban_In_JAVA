@@ -39,5 +39,8 @@ Este proyecto es una implementación del juego Sokoban en Java utilizando Swing 
    ```bash
    git clone https://github.com/DonobanR/Sokoban_In_JAVA.git
 
+## Licencia
+
+Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.
 
 
