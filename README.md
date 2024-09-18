@@ -16,7 +16,6 @@ Este proyecto es una implementación del juego Sokoban en Java utilizando Swing 
 ## Requisitos
 
 - **Java Development Kit (JDK) 17** o superior.
-- **Maven** para la gestión de dependencias y construcción del proyecto.
 
 # Imágenes de la Interfaz
 
