@@ -76,7 +76,7 @@ public class VentanaDeJuego extends JFrame {
     // Se pone nivel como objeto, por error en reconocer los arreglos
 
     public Nivel[] crearListaDeNiveles(){
-        Nivel[] levels = new Nivel[3];
+        Nivel[] levels = new Nivel[6];
         for (int i = 0; i< levels.length; i++){
             levels[i] = new Nivel(i);
         }

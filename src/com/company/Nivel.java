@@ -20,11 +20,6 @@ public class Nivel implements Serializable {
     }
 
     private String buscarArchivoDeNivel(int numeroDeNivel) {
-        // Implementación para buscar la dirección del archivo de nivel
-        // Debes proporcionar la lógica para obtener la dirección según el número de nivel
-        // Este método es solo un esquema básico, debes adaptarlo a tu aplicación
-        // Por ejemplo:
-
         return "/Niveles/nivel" + (numeroDeNivel + 1) + ".txt";
     }
 
